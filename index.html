@@ -23,6 +23,11 @@
             <input type="number" id="price" placeholder="Цена (руб)">
             <input type="date" id="date-input">
             <button onclick="addSubscription()">Добавить</button>
+            <select id="currency-input" style="width: 30%; display: inline-block;">
+                <option value="руб.">₽</option>
+                <option value="$">$</option>
+                <option value="€">€</option>
+</select>
         </div>
 
         <ul id="sub-list"></ul>
@@ -35,12 +40,7 @@
     В год это составит: <span id="total-year-price">0</span> руб.
 </div>
     </div>
-     
-    <select id="currency-input" style="width: 30%; display: inline-block;">
-    <option value="руб.">₽</option>
-    <option value="$">$</option>
-    <option value="€">€</option>
-</select>
+
     <script src="script.js"></script>
 </body>
 </html>
