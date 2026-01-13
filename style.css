@@ -1,3 +1,4 @@
+
 /* Общие настройки шрифта и фона */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -210,4 +211,10 @@ input[type="date"] {
         font-size: 0.95rem;
         color: #555;
     }
+    
+    input[type="date"] {
+    min-height: 50px !important; /* Даем место для иконки календаря */
+    appearance: auto !important; /* Возвращаем стандартный вид для Android */
+    -webkit-appearance: auto !important;
+}
 }
