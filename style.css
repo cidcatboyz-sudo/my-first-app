@@ -104,18 +104,18 @@ li {
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
-    transition: all 0.2s ease; /* Плавная анимация */
+    transition: all 0.2s ease; 
     box-shadow: 0 2px 5px rgba(255, 77, 77, 0.2);
 }
 
 .delete-btn:hover {
     background-color: #ff1a1a;
-    transform: scale(1.1); /* Кнопка немного увеличится при наведении */
+    transform: scale(1.1); 
     box-shadow: 0 4px 8px rgba(255, 77, 77, 0.4);
 }
 
 .delete-btn:active {
-    transform: scale(0.95); /* Эффект нажатия */
+    transform: scale(0.95); 
 }
 
 /* Стилизуем выпадающий список (селект), чтобы он подходил к дизайну */
@@ -143,12 +143,54 @@ select:focus {
     }
     to {
         opacity: 0;
-        transform: translateX(100px); /* Улетает вправо */
+        transform: translateX(100px); 
     }
 }
 
 /* Класс, который запускает анимацию */
 .fade-out {
     animation: slideAway 0.4s forwards;
-    pointer-events: none; /* Чтобы нельзя было нажать кнопку еще раз во время анимации */
+    pointer-events: none; 
+}
+
+
+/* Адаптация под мобильные телефоны */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; 
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    /* Делаем поля ввода и кнопки крупнее для пальцев */
+    input, select, button {
+        width: 100%; 
+        height: 50px; 
+        font-size: 16px !important; 
+        margin-bottom: 10px;
+    }
+
+    /* Стилизуем список подписок */
+    li {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    /* Кнопку удаления делаем побольше и справа */
+    .delete-btn {
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+    }
+
+    .total, .total-year {
+        text-align: center;
+        font-size: 1.1rem;
+    }
 }

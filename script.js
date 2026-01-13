@@ -1,23 +1,21 @@
-// 1. Пытаемся загрузить данные из памяти браузера. 
-// Если там пусто, создаем пустой массив.
+
 let subscriptions = JSON.parse(localStorage.getItem('my_subs')) || [];
 
-// Ждем, пока весь HTML полностью загрузится, прежде чем что-то делать
+
 document.addEventListener('DOMContentLoaded', () => {
-    render(); // Отрисовываем то, что было сохранено ранее
+    render(); 
 });
 
 function addSubscription() {
     const nameInput = document.getElementById('name');
     const priceInput = document.getElementById('price');
     const categoryInput = document.getElementById('category');
-    const dateInput = document.getElementById('date-input'); // Проверь, что ID совпадает с HTML!
+    const dateInput = document.getElementById('date-input'); 
 
     const name = nameInput.value;
     const price = parseFloat(priceInput.value);
     const category = categoryInput.value;
-    const date = dateInput.value; // Получаем строку с датой
-
+    const date = dateInput.value; 
     if (name === '' || isNaN(price)) {
         alert("Пожалуйста, введи название и цену!");
         return;
@@ -28,7 +26,7 @@ function addSubscription() {
         name: name,
         price: price,
         category: category,
-        date: date // Обязательно добавляем это поле в объект
+        date: date 
     };
 
     subscriptions.push(newSub);
@@ -43,14 +41,14 @@ function addSubscription() {
 }
 
 function saveToLocalStorage() {
-    // LocalStorage умеет хранить только строки, поэтому превращаем массив в строку JSON
+    
     localStorage.setItem('my_subs', JSON.stringify(subscriptions));
 }
 
 function render() {
     const list = document.getElementById('sub-list');
     const totalDisplay = document.getElementById('total-price');
-    const totalYearDisplay = document.getElementById('total-year-price'); // 1. Находим новый элемент
+    const totalYearDisplay = document.getElementById('total-year-price'); 
     
     if (!list) return;
 
@@ -82,14 +80,14 @@ function render() {
     totalYearDisplay.innerText = totalYear;
 }
 
-// Добавим функцию удаления (бонус!)
+// Добавим функцию удаления 
 function deleteSub(id) {
     // 1. Находим все элементы <li> на странице
     const items = document.querySelectorAll('li');
     
     // 2. Ищем именно тот <li>, в котором кнопка с нужным id
     items.forEach(li => {
-        // Проверяем, содержит ли кнопка в этом li вызов deleteSub с нашим id
+        
         if (li.innerHTML.includes(`deleteSub(${id})`)) {
             // 3. Добавляем класс анимации
             li.classList.add('fade-out');
@@ -111,7 +109,7 @@ const newSub = {
     name: name,
     price: price,
     currency: document.getElementById('currency').value,
-    category: category // Сохраняем категорию
+    category: category 
 };  
 
 li.innerHTML = `
@@ -130,7 +128,7 @@ function addSubscription() {
     const name = document.getElementById('name').value;
     const price = parseFloat(document.getElementById('price').value);
     const category = document.getElementById('category').value;
-    const date = document.getElementById('date-input').value; // Новое!
+    const date = document.getElementById('date-input').value; 
 
     if (!name || isNaN(price)) return alert("Заполни поля!");
 
