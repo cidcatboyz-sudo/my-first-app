@@ -154,43 +154,45 @@ select:focus {
 }
 
 
-/* Адаптация под мобильные телефоны */
+/* Полная адаптация для мобильных устройств */
 @media (max-width: 600px) {
     .container {
-        width: 95%; 
+        width: 92%; 
+        padding: 20px 15px;
         margin: 10px auto;
-        padding: 15px;
     }
 
     h1 {
-        font-size: 1.5rem; 
+        font-size: 1.4rem;
+        margin-bottom: 15px;
     }
 
-    /* Делаем поля ввода и кнопки крупнее для пальцев */
-    input, select, button {
-        width: 100%; 
-        height: 50px; 
+    
+    input, select {
+        margin-bottom: 12px !important; 
+        padding: 14px !important;
         font-size: 16px !important; 
-        margin-bottom: 10px;
+        border-radius: 10px;
     }
 
-    /* Стилизуем список подписок */
+    
+    button[onclick="addSubscription()"] {
+        padding: 16px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 5px;
+        border-radius: 12px;
+    }
+
+   
     li {
-        flex-direction: column; 
-        align-items: flex-start;
-        gap: 10px;
-        padding: 15px;
+        padding: 12px;
+        margin-bottom: 8px;
+        border-radius: 10px;
     }
 
-    /* Кнопку удаления делаем побольше и справа */
-    .delete-btn {
-        align-self: flex-end;
-        width: 40px;
-        height: 40px;
-    }
-
-    .total, .total-year {
-        text-align: center;
-        font-size: 1.1rem;
+    .total-year {
+        font-size: 0.95rem;
+        color: #555;
     }
 }
