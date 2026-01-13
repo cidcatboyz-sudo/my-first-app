@@ -50,16 +50,16 @@ function saveToLocalStorage() {
 function render() {
     const list = document.getElementById('sub-list');
     const totalDisplay = document.getElementById('total-price');
+    const totalYearDisplay = document.getElementById('total-year-price'); // 1. Находим новый элемент
     
-    // ПРОВЕРКА: Если список не найден в HTML, выходим из функции, чтобы не было ошибки
     if (!list) return;
 
     list.innerHTML = '';
     let total = 0;
 
-  subscriptions.forEach(sub => {
+    subscriptions.forEach(sub => {
         const li = document.createElement('li');
-        li.innerHTML =  `
+        li.innerHTML = `
             <div style="display: flex; flex-direction: column;">
                 <small style="color: gray; font-size: 10px;">${sub.category}</small>
                 <strong>${sub.name}</strong>
@@ -74,7 +74,12 @@ function render() {
         total += sub.price;
     });
 
+    // 2. Выводим месячную сумму
     totalDisplay.innerText = total;
+
+    // 3. Считаем и выводим годовую сумму (умножаем на 12)
+    const totalYear = total * 12;
+    totalYearDisplay.innerText = totalYear;
 }
 
 // Добавим функцию удаления (бонус!)
