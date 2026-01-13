@@ -11,11 +11,14 @@ function addSubscription() {
     const priceInput = document.getElementById('price');
     const categoryInput = document.getElementById('category');
     const dateInput = document.getElementById('date-input'); 
+    const currencyInput = document.getElementById('currency-input'); 
 
     const name = nameInput.value;
     const price = parseFloat(priceInput.value);
     const category = categoryInput.value;
-    const date = dateInput.value; 
+    const date = dateInput.value;
+    const currency = currencyInput.value; 
+
     if (name === '' || isNaN(price)) {
         alert("Пожалуйста, введи название и цену!");
         return;
@@ -26,13 +29,14 @@ function addSubscription() {
         name: name,
         price: price,
         category: category,
-        date: date 
+        date: date,
+        currency: currency 
     };
 
     subscriptions.push(newSub);
     saveToLocalStorage();
     
-    // Очищаем поля
+    
     nameInput.value = '';
     priceInput.value = '';
     dateInput.value = ''; 
